@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'items/index'
+  get 'items/show'
+  get 'items/new'
+  get 'items/create'
+  get 'items/update'
+  get 'items/delete'
+  get 'categories/index'
+  get 'categories/show'
+  get 'categories/new'
+  get 'categories/create'
+  get 'categories/update'
+  get 'categories/delete'
   get 'pages/home'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
