@@ -1,5 +1,22 @@
 <h1>Bienvenue sur la page d'accueil de mon application Rails</h1>
 <p>C'est ma première page d'accueil!</p>
   <li><ul> Faire une bannière avec le nom du site et son logo ainsi que le nom de l'utilisateur connecté</ul></li>
-  <li><ul> Afficher des catégories sous forme de cartes. Et laisser la possibilité d'en créerr une nouvelle ou d'en supprimer une ou de la modifier seulement si on est connecté</ul></li>
+  <li><ul> Afficher des catégories sous forme de cartes. Et laisser la possibilité d'en créer une nouvelle ou d'en supprimer une ou de la modifier seulement si on est connecté</ul></li>
   <li><ul> Quand on clique sur une catégories, on affiche les items liés à cette catégorie </ul></li>
+
+
+
+  <div>
+    <% Category.all.each do |category| %>
+      <div>
+        <h5><%= category.name %></h5>
+        <p><%= category.description %></p>
+        <% if category.photo.attached? %>
+          <%= image_tag category.photo %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <%= link_to 'Créer une nouvelle catégorie', new_category_path %>
