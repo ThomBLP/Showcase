@@ -13,6 +13,7 @@
         <p><%= category.description %></p>
         <% if category.photo.attached? %>
           <%= image_tag category.photo %>
+        <<%= link_to 'Voir les objets', category_path(category) %>>
         <% end %>
       </div>
     <% end %>

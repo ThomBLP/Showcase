@@ -1,2 +1,16 @@
 <h1>Categories#show</h1>
 <p>Find me in app/views/categories/show.html.erb</p>
+  <div>
+    <% Item.all.each do |item| %>
+      <div>
+        <h5><%= item.name %></h5>
+        <% if item.photo.attached? %>
+          <%= image_tag item.photo %>
+        <<%= link_to 'Voir les détails', item_path(item) %>>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <%= link_to 'Créer un nouvel item', new_item_path %>

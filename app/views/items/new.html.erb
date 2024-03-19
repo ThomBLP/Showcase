@@ -1,2 +1,8 @@
 <h1>Items#new</h1>
 <p>Find me in app/views/items/new.html.erb</p>
+<%= simple_form_for @item, html: { multipart: true } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, "Créer" %>
+<% end %>
