@@ -1,16 +1,16 @@
 class ItemsController < ApplicationController
   def new
+    @category = Category.find(params[:category_id])
     @item = Item.new
   end
 
   def create
     @category = Category.find(params[:category_id])
-    @item = Item.new(item_params)
-    @item.category = @category
+    @item = @category.items.build(item_params)
 
     if @item.save
       flash.notice = "Nouvel item crée!"
-      redirect_to root_path
+      redirect_to category_path(@category)
     else
       render :new, status: :unprocessable_entity
     end
@@ -43,5 +43,5 @@ end
 
 
 def item_params
-  params.require(:item).permit(:name, :description, :photo, :id)
+  params.require(:item).permit(:name, :description, :photo)
 end
