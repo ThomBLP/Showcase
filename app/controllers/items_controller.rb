@@ -1,13 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :find_category, only: [:new, :create]
   def new
-    @category = Category.find(params[:category_id])
     @item = Item.new
   end
 
   def create
-    @category = Category.find(params[:category_id])
-    @item = @category.items.build(item_params)
-
+    @item = Item.new(item_params)
     if @item.save
       flash.notice = "Nouvel item crée!"
       redirect_to category_path(@category)
@@ -41,7 +39,11 @@ class ItemsController < ApplicationController
   end
 end
 
+private
 
+def find_category
+  @category = Category.find(params[:category_id])
+end
 def item_params
-  params.require(:item).permit(:name, :description, :photo)
+  params.require(:item).permit(:name, :description, :photo, :category_id)
 end
