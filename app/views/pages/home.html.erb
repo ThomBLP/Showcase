@@ -14,6 +14,7 @@
         <% if category.photo.attached? %>
           <%= image_tag category.photo %>
         <<%= link_to 'Voir les objets', category_path(category.id) %>>
+        <%= button_to "Supprimer", category_url(category), method: :delete, data: { confirm: 'Êtes-vous sur?' }%>
         <% end %>
       </div>
     <% end %>
@@ -21,3 +22,4 @@
 
 
   <%= link_to 'Créer une nouvelle catégorie', new_category_path %>
+  
