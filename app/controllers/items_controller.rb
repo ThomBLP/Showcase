@@ -1,14 +1,14 @@
 class ItemsController < ApplicationController
-  before_action :find_category, only: [:new, :create]
   def new
     @item = Item.new
+    @item.category_id = params[:category_id]
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
       flash.notice = "Nouvel item crée!"
-      redirect_to category_path(@category)
+      redirect_to category_path(@item.category)
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,9 +41,6 @@ end
 
 private
 
-def find_category
-  @category = Category.find(params[:category_id])
-end
 def item_params
   params.require(:item).permit(:name, :description, :photo, :category_id)
 end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show, :new, :create, :update, :destroy]
   end
 
-  resources :items, only: [:index, :show, :new, :create, :update, :destroy]
+
 
   get 'pages/home'
   root 'pages#home'

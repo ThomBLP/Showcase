@@ -1,8 +1,8 @@
 
-<%= simple_form_for @item, html: { multipart: true } do |f| %>
+<%= simple_form_for @item, url: category_items_url, html: { multipart: true } do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :photo, as: :file %>
-  <input type="hidden" name="category_id" value="<%= @category.id %>">
+  <%= f.hidden_field :category_id %>
   <%= f.button :submit, "Créer" %>
 <% end %>
