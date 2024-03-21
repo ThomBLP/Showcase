@@ -6,8 +6,8 @@
         <p><%= item.description %></p>
         <% if item.photo.attached? %>
           <%= image_tag item.photo %>
+          <%= button_to "Supprimer", category_item_path(category_id: @category.id, id: item.id), method: :delete, data: { confirm: 'Êtes-vous sur?' }%>
         <% end %>
-        <%=  %>
       </div>
     <% end %>
   </div>

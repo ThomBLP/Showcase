@@ -28,19 +28,19 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to home_path
+    redirect_to home_path
     end
   end
 
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to home_path
+    redirect_to category_path(@item.category)
   end
 end
 
 private
 
 def item_params
-  params.require(:item).permit(:name, :description, :photo, :category_id)
+  params.require(:item).permit(:name, :description, :photo, :category_id, :id)
 end
