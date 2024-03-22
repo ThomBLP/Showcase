@@ -22,13 +22,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @category = Category.find(params[:category_id])
     @item = Item.find(params[:id])
   end
 
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-    redirect_to home_path
+    redirect_to root_path
     end
   end
 

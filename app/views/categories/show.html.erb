@@ -1,19 +1,19 @@
+  <%= button_to 'Créer un nouvel item', new_category_item_path(@category), method: :get  %>
 
-  <div>
+  <%= button_to 'Accueil', root_path, method: :get %>
+
+  <div class="card-container">
     <% @items.each do |item| %>
-      <div>
-        <h5><%= item.name %></h5>
-        <p><%= item.description %></p>
-        <% if item.photo.attached? %>
-          <%= image_tag item.photo %>
-          <%= button_to "Supprimer", category_item_path(category_id: @category.id, id: item.id), method: :delete, data: { confirm: 'Êtes-vous sur?' }%>
-        <% end %>
+      <% if item.photo.attached? %>
+        <div class= "card">
+          <%= image_tag item.photo, class: "card-image" %>
+            <div class="card-content">
+              <h2><%= item.name %></h2>
+              <p><%= item.description %></p>
+              <%= button_to "Supprimer", category_item_path(category_id: @category.id, id: item.id), method: :delete, data: { confirm: 'Êtes-vous sur?' }%>
+              <%= button_to "Modifier", edit_category_item_path(category_id: @category.id, id: item.id), method: :get %>
+            </div>
+          <% end %>
       </div>
     <% end %>
   </div>
-
-
-
-  <%= link_to 'Créer un nouvel item', new_category_item_path(@category)  %>
-  <br>
-  <%= link_to 'Accueil', root_path %>

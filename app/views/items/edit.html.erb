@@ -1,0 +1,9 @@
+<h1>Items#update</h1>
+<p>Find me in app/views/items/update.html.erb</p>
+<%= simple_form_for @item, url: category_item_path(category_id: @item.category_id, id: @item.id), method: :patch, html: { multipart: true } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :photo, as: :file %>
+  <%= f.hidden_field :category_id %>
+  <%= f.button :submit, "Modifier" %>
+<% end %>
