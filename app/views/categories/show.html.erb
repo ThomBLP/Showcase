@@ -10,8 +10,10 @@
             <div class="card-content">
               <h2><%= item.name %></h2>
               <p><%= item.description %></p>
-              <%= button_to "Supprimer", category_item_path(category_id: @category.id, id: item.id), method: :delete, data: { confirm: 'Êtes-vous sur?' }%>
-              <%= button_to "Modifier", edit_category_item_path(category_id: @category.id, id: item.id), method: :get %>
+              <div class="button-container">
+                <%= button_to "Supprimer", category_item_path(category_id: @category.id, id: item.id), method: :delete, data: { confirm: 'Êtes-vous sur?' }%>
+                <%= button_to "Modifier", edit_category_item_path(category_id: @category.id, id: item.id), method: :get %>
+              </div>
             </div>
           <% end %>
       </div>

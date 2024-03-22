@@ -20,18 +20,20 @@
   display: inline-flex;
   position: relative;
   min-height: 60%;
-  width: calc(33.33% - 10px); /* Un tiers de la largeur de la page, moins 10px pour le padding */
+  width: calc(33.33% - 20px); /* Un tiers de la largeur de la page, moins 10px pour le padding */
   min-width: 200px; /* Largeur minimale pour éviter que la carte ne devienne trop petite */
   max-width: 400px; /* Largeur maximale pour que la carte ne devienne pas trop large */
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  padding: 5px;
-  margin-right: 10px; /* Espacement entre les cartes */
+  padding: 0px;
+  margin: 10px; /* Espacement entre les cartes */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 1px solid black;
+
 }
 
 .card {
