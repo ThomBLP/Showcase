@@ -1,2 +1,23 @@
-<h1>Bienvenue sur la page d'accueil de mon application Rails</h1>
-<p>C'est ma première page d'accueil!</p>
+<h1>SHOWCASE</h1>
+
+
+  <%= button_to 'Créer une nouvelle catégorie', new_category_path, method: :get %>
+
+  <div class="card-container">
+    <% Category.all.each do |category| %>
+      <div class="card-large">
+        <% if category.photo.attached? %>
+          <%= image_tag category.photo, class: "card-image" %>
+        <div class="card-content">
+          <h2><%= category.name %></h2>
+          <p><%= category.description %></p>
+          <div class="button-container">
+            <%= button_to 'Voir les objets', category_path(category.id), method: :get %>
+            <%= button_to "Supprimer", category_url(category), method: :delete, data: { confirm: 'Êtes-vous sur?' }%>
+            <%= button_to 'Modifier', edit_category_path(category), method: :get %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>

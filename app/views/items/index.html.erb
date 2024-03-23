@@ -1,0 +1,16 @@
+dd
+  <div>
+    <% Item.all.each do |item| %>
+      <div>
+        <h5><%= item.name %></h5>
+        <% if item.photo.attached? %>
+          <%= image_tag item.photo %>
+        <% end %>
+        <%=  %>
+      </div>
+    <% end %>
+  </div>
+
+
+
+  <%= link_to 'Créer un nouvel item', new_category_item_path  %>
