@@ -9,8 +9,7 @@
         <% if category.photo.attached? %>
           <%= image_tag category.photo, class: "card-image" %>
         <div class="card-content">
-          <h2><%= category.name %></h2>
-          <p><%= category.description %></p>
+          <h1><center><%= category.name %></center></h1>
           <div class="button-container">
             <%= button_to 'Voir les objets', category_path(category.id), method: :get %>
             <%= button_to "Supprimer", category_url(category), method: :delete, data: { confirm: 'Êtes-vous sur?' }%>
