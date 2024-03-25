@@ -10,11 +10,27 @@
         font-family: 'roboto', sans-serif;
       }
     </style>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "bootstrap", "application", "data-turbo-track": "reload" %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body class="body">
     <%= yield %>
+
+<% if @items.present? %> <!-- Supprimez l'espace ici -->
+  <% @items.each do |item| %>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.getElementById('carousel_<%= item.id %>');
+        if (carousel) {
+          new bootstrap.Carousel(carousel, {
+            interval: 5000,
+            pause: 'hover'
+          });
+        }
+      });
+    </script>
+  <% end %>
+<% end %>
   </body>
 </html>

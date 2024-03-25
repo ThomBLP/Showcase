@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :category
-  has_one_attached :photo
+  has_many_attached :photo
   validates :name, presence: true
   validates :description, presence: true
   validates :photo, presence: true
