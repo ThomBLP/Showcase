@@ -2,7 +2,7 @@
 <%= simple_form_for @item, url: category_items_url, html: { multipart: true } do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :photo, as: :file %>
+  <%= f.file_field :photo, multiple: true %>
   <%= f.hidden_field :category_id %>
   <%= f.button :submit, "Créer" %>
 <% end %>

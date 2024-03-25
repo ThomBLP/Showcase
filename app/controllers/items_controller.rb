@@ -43,5 +43,5 @@ end
 private
 
 def item_params
-  params.require(:item).permit(:name, :description, :photo, :category_id, :id)
+  params.require(:item).permit(:name, :description, :category_id, :id, photo: [])
 end

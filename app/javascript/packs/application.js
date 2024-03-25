@@ -3,3 +3,6 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 //= require simple_form
+//= require bootstrap
+//= require jquery3
+//= require popper
